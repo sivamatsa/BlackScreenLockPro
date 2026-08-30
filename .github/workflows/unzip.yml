@@ -1,3 +1,4 @@
+
 name: Extract Pushed Zip File
 on:
   push:
@@ -9,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      workflows: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,4 +27,3 @@ jobs:
           git add .
           git commit -m "Automatically extracted ZIP contents" || exit 0
           git push
-          
